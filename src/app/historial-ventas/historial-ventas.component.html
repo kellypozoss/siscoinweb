@@ -1,0 +1,96 @@
+<!--div fxLayout="row wrap">
+    <div fxFlex="100">
+        <mat-card>
+            <mat-card-content>
+                <div fxLayout="row wrap" class="align-items-center">
+                    <div fxFlex.gt-md="25" fxFlex.gt-lg="25" fxFlex="100">
+                        <mat-form-field>
+                            <input matInput (keyup)="applyFilter($event.target.value)"
+                                placeholder="Buscar venta (Fecha)" autocomplete="off">
+                        </mat-form-field>
+                    </div>
+                    <div fxFlex.gt-md="75" class="text-right">
+                        <a class="pointer" (click)="downloadPDF()" style="color: rgb(192, 58, 34)"
+                            matTooltip="Descargar historial">
+
+                            <img class="icon" src="assets/images/pdf-icon.png">
+                        </a>
+                        <a class="pointer" style="color: #3a69a7;" matTooltip="Exportar excel">
+                            <img class="icon" src="assets/images/excel-icon.png">
+                        </a>
+                        <br>
+                        <br>
+                        <button mat-raised-button (click)="openDialog('Agregar',{})" color="primary">Agregar
+                            Venta</button>
+
+
+
+
+                    </div>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>-->
+<div fxLayout="row wrap">
+    <div fxFlex="100">
+        <mat-card>
+            <mat-card-content>
+                <div fxLayout="row wrap" class="align-items-center">
+                    <div fxFlex.gt-md="25" fxFlex.gt-lg="25" fxFlex="100">
+                        <mat-form-field>
+                            <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Buscar Producto"
+                                autocomplete="off">
+                        </mat-form-field>
+                    </div>
+                    <!-- <div fxFlex.gt-md="75" class="text-right">
+                        <button mat-raised-button (click)="openDialog('Agregar',{})" color="primary">Agregar
+                            Producto</button>
+                    </div>  -->
+
+                    <div fxFlex.gt-md="75" class="text-right">
+                        <button mat-raised-button color="primary" (click)="nuevoVenta()">Agregar
+                            Venta</button>
+                    </div>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>
+<div fxLayout="row wrap">
+    <div fxFlex="100">
+        <mat-card>
+            <mat-card-content>
+                <table class="table">
+                    <thead>
+                        <tr>
+
+                            <th scope="col">Fecha</th>
+                            <th scope="col">Producto</th>
+                            <th scope="col">Cantidad</th>
+                            <th scope="col">Precio venta</th>
+                            <!-- <th scope="col">Opciones</th> -->
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let variableVenta of listVentas">
+
+                            <td>{{ variableVenta.fecha }}</td>
+                            <td>{{ variableVenta.id_producto.producto }}</td>
+                            <td>{{ variableVenta.cantidad_vendido }}</td>
+                            <td>{{ variableVenta.precio_v }}</td>
+                            <!-- <td class="action-link"> -->
+                            <!-- <a (click)="editarProducto(variableProducto.id_producto)"
+                                    class="m-r-10 cursor-pointer"><i class="fa fa-pencil"></i></a> -->
+                            <!-- <a (click)="eliminar(variableProducto.id_producto)" class="m-r-20 cursor-pointer">
+                                    <i class="fa fa-trash text-danger"></i>
+                                </a>
+                            </td> -->
+                        </tr>
+
+                    </tbody>
+                </table>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>

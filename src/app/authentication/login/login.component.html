@@ -1,0 +1,73 @@
+<div class="login-register" style="background-image:url(assets/images/background/wave.png);">
+    <div class="container">
+        <img src="assets/images/background/img-realtime.svg">
+    </div>
+    <div class="login-register-box">
+        <mat-card>
+            <mat-card-content>
+                <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                    <div class="text-center">
+                        <img alt="homepage" class="avatar" src="assets/images/background/profilepic2.svg">
+
+                        <div class="text-center">
+
+                            <h4 class="m-t-0">Iniciar sesión</h4>
+                        </div>
+                    </div>
+
+                    <div fxLayout="row wrap">
+                        <!-- col full-->
+                        <div fxFlex.gt-sm="100" fxFlex.gt-xs="100" fxFlex="100">
+
+                            <mat-form-field style="width: 100%">
+                                <input matInput placeholder="Correo electrónico" type="email"
+                                    [formControl]="form.controls['email']">
+                            </mat-form-field>
+                            <small *ngIf="form.controls['email'].hasError('required') && form.controls['email'].touched"
+                                class="text-danger support-text">Debe incluir un correo electrónico.</small>
+                            <small *ngIf="form.controls['email'].errors?.email && form.controls['email'].touched"
+                                class="text-danger support-text">Correo electrónico requerido.</small>
+
+                        </div>
+                        <!-- col full-->
+                        <div fxFlex.gt-sm="100" fxFlex.gt-xs="100" fxFlex="100">
+                            <mat-form-field>
+                                <input matInput type="password" placeholder="Contraseña"
+                                    [formControl]="form.controls['password']">
+                            </mat-form-field>
+                            <small
+                                *ngIf="form.controls['password'].hasError('required') && form.controls['password'].touched"
+                                class="text-danger support-text">Contraseña requerida.</small>
+                            <small 
+                                *ngIf="form.controls['password'].hasError('minlength') && form.controls['password'].touched"
+                                class="text-danger support-text">Debe tener un minimo de 8 caracteres.</small>
+                        </div>
+                        <!-- col half-->
+                        <div fxFlex.gt-sm="50" fxFlex.gt-xs="50">
+                            <mat-checkbox color="warn">Recuérdame</mat-checkbox>
+                        </div>
+                        <!-- col half-->
+                        <div fxFlex.gt-sm="50" fxFlex.gt-xs="50" class="text-right">
+                            <a [routerLink]="['/authentication/forgot']" class="link">¿Olvidaste tu contraseña?</a>
+                        </div>
+                        <!-- col full-->
+                        <div fxFlex.gt-sm="100" fxFlex.gt-xs="100" fxFlex="100" class="role">
+                            <button mat-raised-button color="primary" class="btn-block btn-lg m-t-20 m-b-20"
+                                type="submit" (click)="login()" [disabled]="!form.valid">Ingresar</button>
+                        </div><!-- col full-->
+                        <div fxFlex.gt-sm="100" fxFlex.gt-xs="100" fxFlex="100" class="role">
+                            <button mat-raised-button color="danger" class="btn-block btn-lg m-t-8 m-b-20 btn-google"
+                                (click)="onGoogleLogin()">Inicia con Google</button>
+                        </div>
+                        <!-- col full-->
+                        <div fxFlex.gt-sm="100" fxFlex.gt-xs="100" fxFlex="100" class="text-center">
+                            <span>¿No tienes cuenta?
+                                <a [routerLink]="['/authentication/register']" class="text-info link">Regístrate</a>
+                            </span>
+                        </div>
+                    </div>
+                </form>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>

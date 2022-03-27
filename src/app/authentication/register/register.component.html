@@ -1,0 +1,79 @@
+<div class="login-register" style="background-image:url(assets/images/background/wave.png);">
+  <div class="container">
+    <img src="assets/images/background/register.svg">
+  </div>
+  <div class="login-register-box">
+    <mat-card>
+      <mat-card-content>
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+          <div class="text-center">
+            <img alt="homepage" class="avatar" src="assets/images/background/profilepic2.svg">
+            <h4 class="m-t-0">Regístrate</h4>
+          </div>
+          <div fxLayout="row wrap">
+            <!-- col full-->
+            <div fxFlex.gt-sm="100" fxFlex.gt-xs="100" fxFlex="100">
+              <mat-form-field style="width: 100%">
+                <input matInput placeholder="Correo electrónico" type="email" [formControl]="form.controls['email']">
+              </mat-form-field>
+              <small *ngIf="form.controls['email'].hasError('required') && form.controls['email'].touched"
+                class="text-danger support-text">Debe incluir un correo electrónico.</small>
+              <small *ngIf="form.controls['email'].errors?.email && form.controls['email'].touched"
+                class="text-danger support-text">Debe validar el correo electrónico.</small>
+            </div>
+            <!-- col full-->
+            <div fxFlex.gt-sm="100" fxFlex.gt-xs="100" fxFlex="100">
+              <mat-form-field style="width: 100%">
+                <input matInput type="password" placeholder="Contraseña" [formControl]="form.controls['password']">
+              </mat-form-field>
+              <small *ngIf="form.controls['password'].hasError('required') && form.controls['password'].touched"
+                class="text-danger support-text">Debe incluir una contraseña.</small>
+                <small *ngIf="form.controls['password'].hasError('minlength') && form.controls['password'].touched"
+                class="text-danger support-text">Debe tener un minimo de 8 caracteres.</small>
+            </div>
+            <!-- col full-->
+            <div fxFlex.gt-sm="100" fxFlex.gt-xs="100" fxFlex="100">
+              <mat-form-field style="width: 100%">
+                <input matInput placeholder="Confirmar contraseña" [formControl]="form.controls['confirmPassword']"
+                  type="password">
+              </mat-form-field>
+              <small
+                *ngIf="form.controls['confirmPassword'].hasError('required') && form.controls['confirmPassword'].touched"
+                class="text-danger support-text">Debe confirmar la contraseña.</small>
+                <small *ngIf="form.controls['confirmPassword'].errors?.equalTo"
+                class="text-danger support-text">Contraseñas no coinciden.</small>
+                <small *ngIf="form.controls['confirmPassword'].hasError('minlength') && form.controls['confirmPassword'].touched"
+                class="text-danger support-text">Debe tener un minimo de 8 caracteres.</small>
+            </div>
+            <!-- col full-->
+            <div fxFlex.gt-sm="100" fxFlex.gt-xs="100" fxFlex="100">
+              <mat-form-field style="width: 100%">
+                <input matInput placeholder="Nombre del negocio" type="text" [formControl]="form.controls['Ename']">
+              </mat-form-field>
+               <small *ngIf="form.controls['Ename'].hasError('required') && form.controls['Ename'].touched"
+                class="text-danger support-text"> Debe incluir el nombre del negocio. </small>
+                <small *ngIf="form.controls['Ename'].hasError('minlength')  && form.controls['Ename'].touched"
+                class="text-danger support-text"> Nombre de negocio muy corto. </small>  
+            </div>
+
+            <!-- col full-->
+            <div fxFlex.gt-sm="100" fxFlex.gt-xs="100" fxFlex="100">
+              <mat-checkbox class="font-14">Estoy de acuerdo con los términos
+                <a href="javascript:void(0)" class="link text-info">Términos</a>.
+              </mat-checkbox>
+            </div>
+            <button mat-raised-button color="primary" class="btn-block btn-lg m-t-20 m-b-20" type="submit"
+              [disabled]="!form.valid">Registrar</button>
+
+            <div class="text-center" fxFlex.gt-sm="100" fxFlex.gt-xs="100" fxFlex="100">
+              <span>¿Ya tienes una cuenta?
+                <a [routerLink]="['/authentication/login']" class="link text-info"> Iniciar sesión</a>
+              </span>
+            </div>
+          </div>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+<!--ALMS Le movi a las validaciones-->

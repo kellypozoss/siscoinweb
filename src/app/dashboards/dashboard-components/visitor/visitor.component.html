@@ -1,0 +1,14 @@
+<mat-card>
+    <mat-card-content>
+        <mat-card-title>Tendencias</mat-card-title>
+        <mat-card-subtitle>Numero de ventas del producto más solicitado de su inventario </mat-card-subtitle>
+        <div id="newsletter-chart" class="d-flex flex-column">
+            <apx-chart [series]="lineChartOptions.series" [chart]="lineChartOptions.chart"
+                [xaxis]="lineChartOptions.xaxis" [stroke]="lineChartOptions.stroke" [tooltip]="lineChartOptions.tooltip"
+                [dataLabels]="lineChartOptions.dataLabels" [legend]="lineChartOptions.legend"
+                [colors]="lineChartOptions.colors" [markers]="lineChartOptions.markers">
+            </apx-chart>
+        </div>
+
+    </mat-card-content>
+</mat-card>
