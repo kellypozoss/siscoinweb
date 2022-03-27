@@ -71,6 +71,7 @@ import { EditarEmpleadoComponent } from './apps/editar-empleado/editar-empleado.
 PdfMakeWrapper.setFonts(pdfFonts);
 
 //ALMS Importar para redes sociales
+import { CookieService } from 'ngx-cookie-service';
 
 
 
@@ -115,10 +116,6 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
         AgregarEmpleadoComponent,
         EditarEmpleadoComponent
 
-
-
-
-
     ],
     imports: [
         BrowserModule,
@@ -155,8 +152,10 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
             //ALMS Modifique.
             provide: BUCKET, useValue: 'https://console.firebase.google.com/project/smartcommerce-9a879/storage/smartcommerce-9a879.appspot.com/files'
         }, mailService, mailGlobalVariable,
-        DatePipe
+        DatePipe,
+        CookieService
     ],
+
     bootstrap: [AppComponent]
 })
 export class AppModule { }
